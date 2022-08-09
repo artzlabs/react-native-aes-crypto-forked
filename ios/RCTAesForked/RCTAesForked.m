@@ -2,8 +2,9 @@
 //  RCTAes.m
 //  RCTAes
 //
-//  Created by tectiv3 on 10/02/17.
-//  Copyright (c) 2017 tectiv3. All rights reserved.
+//  Created by tectiv3 on 10/02/17. Forked by Metamask in 2018. 
+//  Forked by Artzlabs in 2022
+//  Copyright © 2017 tectiv3. All rights reserved.
 //
 
 
@@ -62,6 +63,18 @@ RCT_EXPORT_METHOD(hmac256:(NSString *)base64 key:(NSString *)key
     }
 }
 
+RCT_EXPORT_METHOD(hmac512:(NSString *)base64 key:(NSString *)key
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject) {
+    NSError *error = nil;
+    NSString *data = [AesCryptForked hmac512:base64 key:key];
+    if (data == nil) {
+        reject(@"hmac_fail", @"HMAC error", error);
+    } else {
+        resolve(data);
+    }
+}
+
 RCT_EXPORT_METHOD(sha1:(NSString *)text
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
@@ -93,6 +106,29 @@ RCT_EXPORT_METHOD(sha512:(NSString *)text
     NSString *data = [AesCryptForked sha512:text];
     if (data == nil) {
         reject(@"sha512_fail", @"Hash error", error);
+    } else {
+        resolve(data);
+    }
+}
+
+RCT_EXPORT_METHOD(randomUuid:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject) {
+    NSError *error = nil;
+    NSString *data = [AesCryptForked randomUuid];
+    if (data == nil) {
+        reject(@"uuid_fail", @"Uuid error", error);
+    } else {
+        resolve(data);
+    }
+}
+
+RCT_EXPORT_METHOD(randomKey:(NSInteger)length
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject) {
+    NSError *error = nil;
+    NSString *data = [AesCryptForked randomKey:length];
+    if (data == nil) {
+        reject(@"random_fail", @"Random key error", error);
     } else {
         resolve(data);
     }

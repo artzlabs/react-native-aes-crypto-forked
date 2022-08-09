@@ -1,7 +1,8 @@
 //
 //  AesCryptForked.h
 //
-//  Created by tectiv3 on 10/02/17.
+//  Created by tectiv3 on 10/02/17. Forked by Metamask in 2018. 
+//  Forked by Artzlabs in 2022
 //  Copyright © 2017 tectiv3. All rights reserved.
 //
 
@@ -12,8 +13,11 @@
 + (NSString *) decrypt: (NSString *)cipherText key: (NSString *)key iv: (NSString *)iv;
 + (NSString *) pbkdf2:(NSString *)password salt: (NSString *)salt;
 + (NSString *) hmac256: (NSString *)input key: (NSString *)key;
++ (NSString *) hmac512: (NSString *)input key: (NSString *)key;
 + (NSString *) sha1: (NSString *)input;
 + (NSString *) sha256: (NSString *)input;
 + (NSString *) sha512: (NSString *)input;
 + (NSString *) toHex: (NSData *)nsdata;
++ (NSString *) randomUuid;
++ (NSString *) randomKey: (NSInteger)length;
 @end

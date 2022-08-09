@@ -1,9 +1,11 @@
 {
-    "name": "react-native-aes-crypto",
-    "version": "1.2.1",
+    "name": "react-native-aes-crypto-forked",
+    "version": "2.1.0-artz",
     "description": "AES crypto native module for react-native",
     "main": "index.js",
-    "author": "tectiv3",
+    "author": "artzlabs",
+    "types": "index.d.ts",
+    "contributors": ["metamask", "tectiv3"],
     "license": "GPL-3.0",
     "keywords": [
         "react-native",
@@ -18,15 +20,17 @@
         "sha256",
         "sha512",
         "pbkdf2",
-        "hmac256"
+        "hmac256",
+        "hmac512",
+        "uuid"
     ],
-    "homepage": "https://github.com/tectiv3/react-native-aes",
+    "homepage": "https://github.com/artzlabs/react-native-aes-crypto-forked",
     "bugs": {
-        "url": "https://github.com/tectiv3/react-native-aes/issues"
+        "url": "https://github.com/artzlabs/react-native-aes-crypto-forked/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/tectiv3/react-native-aes.git"
+        "url": "git://github.com/artzlabs/react-native-aes-crypto-forked.git"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
